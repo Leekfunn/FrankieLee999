@@ -1,0 +1,145 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div class="nav">
+    <div class="container">
+      <ul class="pull-left">
+        <a></a></li>
+      </ul>
+      <ul class="pull-right">
+
+        <li><a href="#"></a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="jumbotron">
+    <div class="container">
+      <h1>鍵盤門禁系統</h1>
+      <p> </p>
+      <a href="#"></a>
+    </div>
+  </div>
+  <div class="">
+    <div class="container">
+      <h2></h2>
+      <p></p>
+      <div class="row">
+        <div class="col-md-4">
+          <h1>介紹</h1>
+           <p>Arduino是一種開放源代碼的電子開發平台，可用於創建各種電子裝置和原型。鍵盤門禁系統是一種安全控制系統，它使用密碼或代碼來控制門的進入。
+
+將Arduino與鍵盤和門禁系統相結合，可以創建一個簡單的鍵盤門禁系統。在這個系統中，鍵盤用於輸入密碼，而Arduino則用於驅動門禁系統以控制門的進入。
+
+在這個系統中，Arduino通過讀取鍵盤上的輸入字符來獲取密碼。然後，它比較輸入的密碼與預先設置的密碼是否匹配。如果匹配，Arduino就會向門禁系統發送信號，使門打開。如果密碼不匹配，門禁系統將保持關閉狀態。
+
+鍵盤門禁系統可以用於許多場合，例如辦公室、學校、醫院、銀行等場所。它可以提高安全性，並且比傳統的鑰匙和門禁卡更加方便和易於管理。 <a href="http://www.aafa.org/page/asthma-facts.aspx" target="_blank"></a>
+    <br>
+    <a href="http://www.bcairquality.ca/101/government-air-quality.html " target="_blank"></a></p> 
+    <br>
+ 
+這是一個基於 Arduino 的鍵盤門禁系統程式碼。使用者需要輸入正確的密碼（在此程式中預設為 "789"）才能解鎖。以下是程式碼的詳細解釋：
+
+1. **包含函式庫**：程式碼首先包含了 <Servo.h> 和 <Keypad.h>兩個庫。<Servo.h> 是控制伺服馬達的庫，<Keypad.h> 是讀取鍵盤輸入的庫。
+
+2. **變數和常數的定義**：程式碼定義了一些必要的變數和常數。例如：密碼、伺服馬達的位置、鍵盤的列數和行數（在這裡是 4x4 的鍵盤）、密碼的位置、鍵盤的配置、每一列和每一行的針腳。
+
+3. **設定**：在 `setup()` 函數中，程式設定了兩個 LED 燈的輸出針腳（一個表示鎖定，另一個表示解鎖）並將伺服馬達連接到針腳 11。最後，將系統設定為鎖定狀態。
+
+4. **主要循環**：在 `loop()` 函數中，程式碼讀取鍵盤的輸入。如果輸入的是 '*' 或 '#'，則將密碼位置重設為 0，並將系統設定為鎖定狀態。如果輸入的是當前密碼位置的字符，則將密碼位置增加 1。如果密碼位置達到 3（表示輸入了完整的密碼），則將系統設定為解鎖狀態。
+
+5. **鎖定和解鎖的函數**：`LockedPosition()` 函數控制系統的鎖定和解鎖。如果系統被鎖定，則打開紅色 LED 燈，關閉綠色 LED 燈，並將伺服馬達設定為 0 度（或者你可以選擇其他你希望的鎖定位置）。如果系統被解鎖，則關閉紅色 LED 燈，打開綠色 LED 燈，並將伺服馬達設定為 90 度（或者你可以選擇其他你希望的解鎖位置）。
+
+總的來說，這是一個相當基本的鍵盤門禁系統。其主要功能為當使用者輸入正確的密碼時，系統將從鎖定狀態轉為解鎖狀態，並通過改變 LED 燈的狀態和伺服馬達的位置來表示當前的狀態。<a href="target="_blank"></a> 
+    <br>
+<a
+  href="https://davidhoulding.blogspot.com/2014/03/co-carbon-monoxide-gas-sensor-using.html" target="_blank"></a> 
+     
+        </p>
+        </div>
+
+        <div class="col-md-4">
+
+
+          <div class="thumbnail">
+            <a href="https://imgur.com/M9CcWzQ"><img src="https://i.imgur.com/M9CcWzQl.png" title="source: imgur.com" /></a>
+          </div>
+          <div class="thumbnail">
+          <a href="https://imgur.com/VFL51bq"><img src="https://i.imgur.com/VFL51bq.jpg" title="source: imgur.com" /></a>
+          
+          </div>
+      
+
+        </div>
+        <div class="col-md-4">
+          <h1>Code</h1>
+          <pre>
+#include <Keypad.h>
+
+const byte ROWS = 4; //Four rows
+const byte COLS = 4; //Four columns
+char keys[ROWS][COLS] = {
+  {'1','2','3','A'},
+  {'4','5','6','B'},
+  {'7','8','9','C'},
+  {'S','0','H','D'}
+};
+byte rowPins[ROWS] = {9, 8, 7, 6}; //connect to the row pinouts of the keypad
+byte colPins[COLS] = {5, 4, 3, 2}; //connect to the column pinouts of the keypad
+
+Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );
+
+String v_passcode="";
+
+void setup(){
+  Serial.begin(9600);
+}
+
+void loop(){
+  char key = keypad.getKey();
+  
+  if (key != NO_KEY){
+    //Serial.println(key);
+    
+    v_passcode = v_passcode + key;
+    
+    if(key=='A')
+    {
+    	Serial.println("Enter Password");
+        v_passcode="";
+    }
+    
+    if(key=='D')
+    {
+    	Serial.println("Validate the Password");
+      	//Serial.println(v_passcode);
+      	
+      	if (v_passcode=="589D")
+        {
+          Serial.println("Access Granted");
+        }
+      	else
+        {
+        	Serial.println("Access Denied");
+        }      
+    }        
+  }
+}
+
+}
+
+</pre>
+
+        </div>
+      </div>
+      <div class="col-md-4">
+       <iframe width="560" height="315" src="https://www.youtube.com/embed/z6d9ph3-P2U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      <h1></h1>
+      <p></p>
+    </div>
